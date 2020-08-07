@@ -1,8 +1,12 @@
+<!DOCTYPE html>
+{% load static %}
 <html>
     <head>
         <title>Yogen App</title>
     </head>
+    <link rel="stylesheet" href="{% static "css/yogen.css" %}"/>
     <body>
-        What are we getting from Django? {{test_var}}
+        <h1>What are we getting from Django? {{test_var}}</h1>
+        <img src="{% static "images/whitewolf.png" %}"/>
     </body>
 </html>
