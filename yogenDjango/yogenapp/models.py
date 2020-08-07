@@ -21,3 +21,7 @@ class AccessRecord(models.Model):
 
     def __str__(self):
         return str(self.date)
+
+class Users(models.Model):
+    first_name = models.CharField(max_length=255,unique=True)
+    last_name = models.CharField(max_length=255,unique=True)
