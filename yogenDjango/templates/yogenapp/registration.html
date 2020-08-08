@@ -1,0 +1,17 @@
+{% extends "yogenapp/base.html" %}
+{% load static %}
+{% block body_block %}
+<div class="jumbotron">
+    {% if registered %}
+    <h1>Registered Successfully</h1>
+    {% else %}
+    <h1>Register</h1>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token%}
+    {{ user_form.as_p}}
+    {{ user_info_profile.as_p}}
+    <input type="submit" value="Submit"/>
+    </form>
+    {% endif %}
+</div>
+{% endblock%}
