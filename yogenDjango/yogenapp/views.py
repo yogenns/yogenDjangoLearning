@@ -4,12 +4,23 @@ from . import forms
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,login,logout
-
+from django.views.generic import TemplateView
 # Create your views here.
+
+#Function based View
 def index(request):
     my_dict = {'test_var':'This is a test'}
     print('Index')
     return render(request,'yogenapp/index.html',context=my_dict)
+
+#Class Based View - CBV
+class IndexView(TemplateView):
+    template_name = 'yogenapp/index.html'
+
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        context['test_var'] = 'This is a test'
+        return context
 
 def form_page_view(request):
     form = forms.FormView()

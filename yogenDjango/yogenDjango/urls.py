@@ -18,7 +18,7 @@ from django.urls import path
 from yogenapp import views
 from django.conf.urls import include
 urlpatterns = [
-    path('', views.index,name='index'),
+    path('', views.IndexView.as_view(),name='index'),
     path('yogenapp/',include('yogenapp.urls')),
     path('admin/', admin.site.urls),
     path('logout/', views.user_logout,name='logout'),
