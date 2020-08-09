@@ -4,21 +4,24 @@
         <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> -->
     </head>
     <body>
-        <nav class="navbar navbar-default navbar-static-top">
+        
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
             <div class="container">
-                <ul class="nav navbar-nav">
-                    <li><a class="navbar-brand" href="{% url 'index' %}">DJANGO</a></li>
-                    <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
-                    <li><a class="navbar-link" href="{% url 'yogenapp:register' %}">Register</a></li>
-                    {% if user.is_authenticated %}
-                    <li><a class="navbar-link" href="{% url 'logout' %}">Logout</a></li>
-                    {% else %}
-                    <li><a class="navbar-link" href="{% url 'yogenapp:user_login' %}">LogIn</a></li>
-                    {% endif %}
-                </ul>
+            <a class="nav-item navbar-brand" href="{% url 'index' %}">DJANGO</a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="{% url 'admin:index' %}">Admin</a>
+                <a class="nav-item nav-link" href="{% url 'yogenapp:register' %}">Register</a>
+                {% if user.is_authenticated %}
+                    <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                    <a class="nav-item nav-link" href="{% url 'yogenapp:user_login' %}">LogIn</a>
+                {% endif %}
             </div>
+        </div>
+        
         </nav>
-
+        
         <div class="container">
         {% block body_block%}
         {% endblock %}
