@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'yogenapp',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'yogenDjango.urls'
@@ -129,3 +131,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # The variable name must always be STATICFILES_DIRS
 STATICFILES_DIRS = [ STATIC_DIR,]
+
+INTERNAL_IPS = ['127.0.0.1']

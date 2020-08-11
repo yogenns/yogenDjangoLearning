@@ -16,10 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from yogenapp import views
-from django.conf.urls import include
+from django.conf.urls import url,include
+from django.conf import settings
 urlpatterns = [
     path('', views.IndexView.as_view(),name='index'),
     path('yogenapp/',include('yogenapp.urls')),
     path('admin/', admin.site.urls),
     path('logout/', views.user_logout,name='logout'),
 ]
+
+if settings.DEBUG == True:
+    import debug_toolbar
+    urlpatterns = [
+        url(r'__debug__/',include(debug_toolbar.urls))
+    ] + urlpatterns
+
+
